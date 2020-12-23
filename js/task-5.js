@@ -1,12 +1,10 @@
 const nameInputRef = document.getElementById('name-input');
 const nameLabelRef = document.getElementById('name-output');
 
-nameInputRef.addEventListener('input', event => {
-  nameLabelRef.textContent = event.target.value;
-});
+nameInputRef.addEventListener('input', nameLabelHandler);
 
-nameInputRef.addEventListener('input', event => {
-  if (event.target.value === '') {
-    nameLabelRef.textContent = 'незнакомец';
-  }
-});
+function nameLabelHandler(event) {
+  event.target.value === ''
+    ? (nameLabelRef.textContent = 'незнакомец')
+    : (nameLabelRef.textContent = event.target.value);
+}
