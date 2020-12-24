@@ -1,5 +1,5 @@
-const nameInputRef = document.getElementById('name-input');
-const nameLabelRef = document.getElementById('name-output');
+const nameInputRef = document.querySelector('#name-input');
+const nameLabelRef = document.querySelector('#name-output');
 
 nameInputRef.addEventListener('input', nameLabelHandler);
 

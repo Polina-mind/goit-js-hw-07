@@ -9,10 +9,19 @@ const ingredients = [
 
 const ingredientsUlRef = document.getElementById('ingredients');
 
-ingredients.forEach(ingredient => {
-  const ingredientsItemRef = document.createElement('li');
-  ingredientsItemRef.textContent = ingredient;
-  ingredientsUlRef.appendChild(ingredientsItemRef);
-});
+// ВАРИАНТ 1: добавить за 1 операцию это так или вообще без циклов нужно?
+// ingredients.forEach(ingredient => {
+//   ingredientsUlRef.innerHTML += `<li>${ingredient}</li>`;
+// });
 
-// console.log(ingredientsUl);
+// ВАРИАНТ 2
+ingredients.forEach(ingredient =>
+  ingredientsUlRef.insertAdjacentHTML('afterbegin', `<li>${ingredient}</li>`),
+);
+
+// ВАРИАНТ 3
+//   ingredients.forEach(ingredient => {
+//   let ingredientsItemRef = document.createElement('li');
+//   ingredientsItemRef.textContent = ingredient;
+//   ingredientsUlRef.appendChild(ingredientsItemRef);
+// });

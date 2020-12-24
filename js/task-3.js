@@ -18,15 +18,31 @@ const images = [
 
 const imagesUlRef = document.getElementById('gallery');
 
+//ВАРИАНТ 1
+
+// images.forEach(image => {
+//   const imagesItemRef = document.createElement('img');
+//   imagesItemRef.setAttribute('src', image.url);
+//   imagesItemRef.setAttribute('alt', image.alt);
+//   imagesItemRef.setAttribute('width', 750);
+//   imagesItemRef.setAttribute('height', 450);
+
+//   const itemRef = document.createElement('li');
+//   imagesUlRef.appendChild(itemRef);
+//   itemRef.appendChild(imagesItemRef);
+// });
+
+//ВАРИАНТ 2
+
+// images.forEach(image => {
+//   imagesUlRef.innerHTML += `<li><img src = "${image.url}" alt = "${image.alt}" width="750" height="450"></li>`;
+// });
+
+//ВАРИАНТ 3
+
 images.forEach(image => {
-  const imagesItemRef = document.createElement('img');
-  imagesItemRef.setAttribute('src', image.url);
-  imagesItemRef.setAttribute('alt', image.alt);
-  imagesItemRef.setAttribute('width', 750);
-  imagesItemRef.setAttribute('height', 450);
-  const itemRef = document.createElement('li');
-  //imagesUlRef.appendChild(itemRef);
-  //itemRef.appendChild(imagesItemRef);
-  imagesUlRef.insertAdjacentElement('beforeend', itemRef);
-  itemRef.insertAdjacentElement('afterbegin', imagesItemRef);
+  imagesUlRef.insertAdjacentHTML(
+    'afterbegin',
+    `<li> <img src = "${image.url}" alt = "${image.alt}" width="750" height="450"> </li>`,
+  );
 });
