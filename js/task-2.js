@@ -15,9 +15,9 @@ const ingredientsUlRef = document.getElementById('ingredients');
 // });
 
 // ВАРИАНТ 2
-ingredients.forEach(ingredient =>
-  ingredientsUlRef.insertAdjacentHTML('afterbegin', `<li>${ingredient}</li>`),
-);
+// ingredients.forEach(ingredient =>
+//   ingredientsUlRef.insertAdjacentHTML('afterbegin', `<li>${ingredient}</li>`),
+// );
 
 // ВАРИАНТ 3
 //   ingredients.forEach(ingredient => {
@@ -25,3 +25,11 @@ ingredients.forEach(ingredient =>
 //   ingredientsItemRef.textContent = ingredient;
 //   ingredientsUlRef.appendChild(ingredientsItemRef);
 // });
+
+// ВАРИАНТ 4
+const ingredientsItems = ingredients.map(ingredient => {
+  const ingredientsItemRef = document.createElement('li');
+  ingredientsItemRef.textContent = ingredient;
+  return ingredientsItemRef;
+});
+ingredientsUlRef.append(...ingredientsItems);
